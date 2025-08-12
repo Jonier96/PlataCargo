@@ -19,48 +19,42 @@ import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
 
+
 export default function App() {
   return (
-    <>
-      <Router>
-        <ScrollToTop />
-        <Routes>
-          {/* Dashboard Layout */}
-          <Route element={<AppLayout />}>
-            <Route index path="/" element={<Home />} />
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        {/* Redirige la raíz a /signin */}
+        <Route path="/" element={<SignIn />} />
 
-            {/* Others Page */}
-            <Route path="/profile" element={<UserProfiles />} />
-            <Route path="/calendar" element={<Calendar />} />
-            <Route path="/blank" element={<Blank />} />
+        {/* Rutas Públicas (Autenticación) */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
 
-            {/* Forms */}
-            <Route path="/form-elements" element={<FormElements />} />
+        {/* Rutas Protegidas (Layout de la App) */}
+        <Route element={<AppLayout />}>
+          <Route path="/dashboard" element={<Home />} /> {/* Nueva ruta para el dashboard */}
+          
+          {/* Resto de rutas protegidas */}
+          <Route path="/profile" element={<UserProfiles />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/blank" element={<Blank />} />
+          <Route path="/form-elements" element={<FormElements />} />
+          <Route path="/basic-tables" element={<BasicTables />} />
+          <Route path="/alerts" element={<Alerts />} />
+          <Route path="/avatars" element={<Avatars />} />
+          <Route path="/badge" element={<Badges />} />
+          <Route path="/buttons" element={<Buttons />} />
+          <Route path="/images" element={<Images />} />
+          <Route path="/videos" element={<Videos />} />
+          <Route path="/line-chart" element={<LineChart />} />
+          <Route path="/bar-chart" element={<BarChart />} />
+        </Route>
 
-            {/* Tables */}
-            <Route path="/basic-tables" element={<BasicTables />} />
-
-            {/* Ui Elements */}
-            <Route path="/alerts" element={<Alerts />} />
-            <Route path="/avatars" element={<Avatars />} />
-            <Route path="/badge" element={<Badges />} />
-            <Route path="/buttons" element={<Buttons />} />
-            <Route path="/images" element={<Images />} />
-            <Route path="/videos" element={<Videos />} />
-
-            {/* Charts */}
-            <Route path="/line-chart" element={<LineChart />} />
-            <Route path="/bar-chart" element={<BarChart />} />
-          </Route>
-
-          {/* Auth Layout */}
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-
-          {/* Fallback Route */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </>
+        {/* Ruta de error 404 */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }

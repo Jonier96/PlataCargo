@@ -16,7 +16,7 @@ import {
   UserCircleIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
-import SidebarWidget from "./SidebarWidget";
+
 
 type NavItem = {
   name: string;
@@ -29,7 +29,7 @@ const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
     name: "Dashboard",
-    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+    subItems: [{ name: "Ecommerce", path: "/dashboard", pro: false }],
   },
   {
     icon: <CalenderIcon />,
@@ -194,7 +194,7 @@ const AppSidebar: React.FC = () => {
                   className={`ml-auto w-5 h-5 transition-transform duration-200 ${
                     openSubmenu?.type === menuType &&
                     openSubmenu?.index === index
-                      ? "rotate-180 text-brand-500"
+                      ? "rotate-180 text-green-500"
                       : ""
                   }`}
                 />
@@ -367,8 +367,7 @@ const AppSidebar: React.FC = () => {
               {renderMenuItems(othersItems, "others")}
             </div>
           </div>
-        </nav>
-        {isExpanded || isHovered || isMobileOpen ? <SidebarWidget /> : null}
+        </nav> 
       </div>
     </aside>
   );

@@ -17,7 +17,8 @@ import FormElements from "./pages/Forms/FormElements";
 import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
-import Home from "./pages/Dashboard/Home";
+import Home from "./pages/Dashboard/Funcionarios";
+import Contratos from "./pages/Dashboard/Contratos";
 
 
 export default function App() {
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/videos" element={<Videos />} />
           <Route path="/line-chart" element={<LineChart />} />
           <Route path="/bar-chart" element={<BarChart />} />
+          <Route path="/contratos" element={<Contratos />} />
         </Route>
 
         {/* Ruta de error 404 */}

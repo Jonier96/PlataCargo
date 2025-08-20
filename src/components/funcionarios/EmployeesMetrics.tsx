@@ -1,6 +1,4 @@
 import {
-  
-  ArrowUpIcon,
   BoxIconLine,
   GroupIcon,
 } from "../../icons";
@@ -53,10 +51,7 @@ export default function EcommerceMetrics() {
               {totalEmpleados.toLocaleString()}
             </h4>
           </div>
-          <Badge color="success">
-            <ArrowUpIcon />
-            11.01%
-          </Badge>
+          
         </div>
       </div>
 

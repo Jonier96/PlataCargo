@@ -29,8 +29,8 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
-    name: "Planta de cargo",
-    subItems: [{ name: "Funcionarios", path: "/dashboard", pro: false },
+    name: "Funcionarios",
+    subItems: [{ name: "Gestion", path: "/dashboard", pro: false },
       {name: "Contratos", path: "/contratos", pro: false}
     ],
   },
